@@ -62,7 +62,7 @@ AC_DEFUN([ZFS_AC_CONFIG_ALWAYS_PYTHON], [
 		[AC_MSG_ERROR([Unknown --with-python value '$with_python'])]
 	)
 
-	AS_IF([$PYTHON --version >/dev/null 2>&1], [ /bin/true ], [
+	AS_IF([test -n $PYTHON || $PYTHON --version >/dev/null 2>&1], [ /bin/true ], [
 		AC_MSG_ERROR([Cannot find $PYTHON in your system path])
 	])
 
